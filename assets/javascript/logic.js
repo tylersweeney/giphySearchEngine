@@ -77,7 +77,7 @@ $(document).ready(function(){
 
     $("add-animal").on("click", function(event) {
         event.preventDefault();
-        var newAnimal = $("input").eq(0),val();
+        var newAnimal = $("input").eq(0).val();
 
         if (newAnimal.length > 2) {
             animals.push(newAnimal);
