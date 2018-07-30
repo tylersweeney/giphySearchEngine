@@ -74,4 +74,18 @@ $(document).ready(function(){
             $(this).attr("data-state", "still");
         }
     });
-})
+
+    $("add-animal").on("click", function(event) {
+        event.preventDefault();
+        var newAnimal = $("input").eq(0),val();
+
+        if (newAnimal.length > 2) {
+            animals.push(newAnimal);
+        }
+
+        populateButtons(animals, "animal-button", "#animal-buttons");
+
+    });
+
+    populateButtons(animals, "animal-button", "#animal-buttons");
+});
