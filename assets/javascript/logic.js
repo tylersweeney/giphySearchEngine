@@ -42,7 +42,36 @@ $(document).ready(function(){
                 var rating = results[i].rating;
 
                 var p = $("<p>").text("Rating: " + rating);
+
+                var animated = results[i].images.fixed_height.url;
+                var still = restuls[i].images.fixed_height_still.url;
+
+                var animalImage = $("<img");
+                animalImage.attr("src", still);
+                animalImage.attr("data-still", still);
+                animalImage.attr("data-animate", animated);
+                animalImage.attr("data-state", still);
+                animalImage.addClass("animal-image");
+
+                animalDiv.append(p);
+                animalDiv.append(animalImage);
+
+                $("animals").append(animalDiv);
             }
-        })
-    })
+        });
+    });
+
+    $(document).on("click", ".animal-image", function() {
+
+        var state = $(this).attr("data-state");
+
+        if (state === "stil") {
+            $(this).attr("src", $(this).attr("data-animate"));
+            $(this).attre("data-state", "animate");
+        }
+        else {
+            $(this).attr("src", $(this).attr("data-still"));
+            $(this).attr("data-state", "still");
+        }
+    });
 })
